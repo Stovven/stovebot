@@ -64,7 +64,7 @@ client.once('ready', () => {
 		const filter = "ttstats"
 		if(ttUsername.includes(filter)){
 			return;
-		} else {
+		}
 		let embed = new Discord.MessageEmbed()
 				.setColor('#47FC74')
 				.setAuthor(`${ttUsername.name} has joined the turntable!`)
@@ -79,14 +79,13 @@ client.once('ready', () => {
 			const filter = "ttstats"
 			if(ttUsername.includes(filter)){
 				return;
-			} else {
+			}
 			let embed = new Discord.MessageEmbed()
 			    .setColor('#47FC74')
 			    .setAuthor(`${ttUsername.name} has left the turntable!`)
 			    .setDescription(`thats a shame isnt it.`)
 			    .setFooter(`god i still hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
-		}
 		})
 
 		//wish i didnt have to do this perhaps
