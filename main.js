@@ -43,14 +43,14 @@ client.once('ready', () => {
     activity: {
     name: 'you',
     type: "WATCHING"
-
+}})
 		// turntable features
 
 		//login into turntable
-		let AUTH = `${process.env.TT_AUTH}`
-		let USERID = `${process.env.TT_USERID}`
+		const AUTH = `${process.env.TT_AUTH}`
+		const USERID = `${process.env.TT_USERID}`
 		// room to log
-		let ROOMID = `${process.env.TT_ROOMID}`
+		const ROOMID = `${process.env.TT_ROOMID}`
 		const data = ""
 
 		//actually login into turnable and goes into room to log
@@ -78,8 +78,6 @@ client.once('ready', () => {
 			    .setFooter(`god i hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
 		})
-
-}})
 });
 
 
