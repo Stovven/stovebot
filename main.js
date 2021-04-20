@@ -62,7 +62,7 @@ client.once('ready', () => {
 		ttClient.on('registered', async data => {
 		const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
 		const filter = "ttstats"
-		if(ttUsername.includes(filter)){
+		if(ttUsername.includes(filter)) {
 			return;
 		}
 		let embed = new Discord.MessageEmbed()
@@ -71,7 +71,6 @@ client.once('ready', () => {
 				.setDescription(`hey look, new people!`)
 				.setFooter(`god i hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
-		}
 		})
 
 		ttClient.on('deregistered', async data => {
