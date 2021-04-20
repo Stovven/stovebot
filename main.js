@@ -79,9 +79,9 @@ client.once('ready', () => {
 			client.channels.cache.get('834077440502399026').send(embed)
 		})
 
-		//wish i didnt have to do this
+		//wish i didnt have to do this perhaps
 		ttClient.on('newsong', async data => {
-			bop()
+			ttClient.bop()
 		})
 });
 
