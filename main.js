@@ -47,10 +47,10 @@ client.once('ready', () => {
 		// turntable features
 
 		//login into turntable
-		const AUTH = `${process.env.TT_AUTH}`
-		const USERID = `${process.env.TT_USERID}`
+		let AUTH = `${process.env.TT_AUTH}`
+		let USERID = `${process.env.TT_USERID}`
 		// room to log
-		const ROOMID = `${process.env.TT_ROOMID}`
+		let ROOMID = `${process.env.TT_ROOMID}`
 		const data = ""
 
 		//actually login into turnable and goes into room to log
