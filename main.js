@@ -61,22 +61,32 @@ client.once('ready', () => {
 		//logs if leaves or joins
 		ttClient.on('registered', async data => {
 		const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
+		const filter = "ttstats"
+		if(ttUsername.includes(filter)){
+			return;
+		} else {
 		let embed = new Discord.MessageEmbed()
 				.setColor('#47FC74')
 				.setAuthor(`${ttUsername.name} has joined the turntable!`)
 				.setDescription(`hey look, new people!`)
 				.setFooter(`god i hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
+		}
 		})
 
 		ttClient.on('deregistered', async data => {
 			const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
+			const filter = "ttstats"
+			if(ttUsername.includes(filter)){
+				return;
+			} else {
 			let embed = new Discord.MessageEmbed()
 			    .setColor('#47FC74')
 			    .setAuthor(`${ttUsername.name} has left the turntable!`)
 			    .setDescription(`thats a shame isnt it.`)
 			    .setFooter(`god i hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
+		}
 		})
 
 		//wish i didnt have to do this perhaps
