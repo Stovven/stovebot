@@ -78,6 +78,11 @@ client.once('ready', () => {
 			    .setFooter(`god i hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
 		})
+
+		//wish i didnt have to do this
+		ttClient.on('newsong', async data => {
+			bop()
+		})
 });
 
 
