@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const Turntable = require('ttapi');
 const client = new Discord.Client();
 const fs = require('fs');
 const config = require('./config/config.json');
@@ -42,6 +43,42 @@ client.once('ready', () => {
     activity: {
     name: 'you',
     type: "WATCHING"
+
+		// turntable features
+
+		//login into turntable
+		const AUTH = process.env.TT_AUTH
+		const USERID = process.env.TT_USERID
+		// room to log
+		const ROOMID = process.env.TT_ROOMID
+		const data = ""
+
+		//actually login into turnable and goes into room to log
+		const ttClient = new Turntable(AUTH, USERID)
+		ttClient.on('ready', async data => {
+			ttClient.roomRegister(ROOMID);
+		})
+		//logs if leaves or joins
+		ttClient.on('registered', async data => {
+		const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
+		let embed = new Discord.MessageEmbed()
+				.setColor('#47FC74')
+				.setAuthor(`${ttUsername.name} has joined the turntable!`)
+				.setDescription(`hey look, new people!`)
+				.setFooter(`god i hate this api`)
+			client.channels.cache.get('834077440502399026').send(embed)
+		})
+
+		ttClient.on('deregistered', async data => {
+			const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
+			let embed = new Discord.MessageEmbed()
+			    .setColor('#47FC74')
+			    .setAuthor(`${ttUsername.name} has left the turntable!`)
+			    .setDescription(`thats a shame isnt it.`)
+			    .setFooter(`god i hate this api`)
+			client.channels.cache.get('834077440502399026').send(embed)
+		})
+
 }})
 });
 
