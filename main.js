@@ -1,3 +1,4 @@
+// rewrite
 const Discord = require('discord.js');
 const Turntable = require('ttapi');
 const client = new Discord.Client();
