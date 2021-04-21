@@ -62,10 +62,10 @@ client.once('ready', () => {
 		ttClient.on('registered', async data => {
 		const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
 		const filter = "ttstats"
-		// if(ttUsername.indexOf(filter)  >= 0) {
-		// 	return;
-		// }
-		let embed = new Discord.MessageEmbed()
+		if(ttUsername.name.includes(filter)) {
+					return;
+				}
+				let embed = new Discord.MessageEmbed()
 				.setColor('#47FC74')
 				.setAuthor(`${ttUsername.name} has joined the turntable!`)
 				.setDescription(`hey look, new people!`)
@@ -76,9 +76,9 @@ client.once('ready', () => {
 		ttClient.on('deregistered', async data => {
 			const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
 			const filter = "ttstats"
-			// if(ttUsername.indexOf(filter) >= 0){
-			// 	return;
-			// }
+			if(ttUsername.name.includes(filter)) {
+						return;
+					}
 			let embed = new Discord.MessageEmbed()
 			    .setColor('#47FC74')
 			    .setAuthor(`${ttUsername.name} has left the turntable!`)
