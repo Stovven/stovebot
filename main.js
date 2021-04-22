@@ -68,6 +68,15 @@ client.once('ready', () => {
 		if(ttUsername.name.includes(filter)) {
 					return;
 				}
+			if(ttUsername.name == "stovven") {
+				let embed = new Discord.MessageEmbed()
+				.setColor('#47FC74')
+				.setAuthor(`${ttUsername.name} has joined the turntable!`)
+				.setDescription(`hey look, thats me!`)
+				.setFooter(`god i hate this api`)
+			client.channels.cache.get('834077440502399026').send(embed)
+				return;
+			}
 				let embed = new Discord.MessageEmbed()
 				.setColor('#47FC74')
 				.setAuthor(`${ttUsername.name} has joined the turntable!`)
