@@ -57,6 +57,8 @@ client.once('ready', () => {
 		const ttClient = new Turntable(AUTH, USERID)
 		ttClient.on('ready', async data => {
 			ttClient.roomRegister(ROOMID);
+			ttClient.setAsBot()
+			console.log('Turntable ready!')
 		})
 		//logs if leaves or joins
 		ttClient.on('registered', async data => {
