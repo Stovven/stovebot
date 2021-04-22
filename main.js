@@ -84,7 +84,7 @@ client.once('ready', () => {
 			let embed = new Discord.MessageEmbed()
 			    .setColor('#47FC74')
 			    .setAuthor(`${ttUsername.name} has left the turntable!`)
-			    .setDescription(`thats a shame isnt it.`)
+			    .setDescription(`thats a shame innit.`)
 			    .setFooter(`god i still hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
 		})
