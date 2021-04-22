@@ -61,7 +61,6 @@ client.once('ready', () => {
 			});
 			console.log('Turntable ready!')
 		})
-		});
 		//logs if leaves or joins
 		ttClient.on('registered', async data => {
 		const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
