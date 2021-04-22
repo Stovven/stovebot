@@ -57,9 +57,12 @@ client.once('ready', () => {
 		const ttClient = new Turntable(AUTH, USERID)
 		ttClient.on('ready', async data => {
 			ttClient.roomRegister(ROOMID);
-			ttClient.setAsBot()
 			console.log('Turntable ready!')
 		})
+		//set as bot due to afk changes
+		ttClient.roomRegister(roomid, function() {
+  	ttClient.setAsBot();
+		});
 		//logs if leaves or joins
 		ttClient.on('registered', async data => {
 		const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
