@@ -1,11 +1,11 @@
 const Discord = module.require('discord.js');
-const gman = module.require("../config/gman.json");
+const gman = module.require("../../config/gman.json");
 const quotes = gman.quotes
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+  commands: 'gman' ,
+  callback: (message, arguments, text) => {
     var q = gman.quotes[Math.floor(Math.random()*quotes.length)];
     message.channel.send(q)
-}
-module.exports.help = {
-  name: "gman"
+  },
 }

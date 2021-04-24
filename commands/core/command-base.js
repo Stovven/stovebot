@@ -55,7 +55,7 @@ const allCommands = {}
       commands = [commands]
     }
 
-  console.log(`Registering command: "${commands[0]}"`)
+  console.log(`adding command: "${commands[0]}"`)
 
     if(permissions.length) {
       if(typeof permission === 'string') {
@@ -91,6 +91,7 @@ module.exports.listen = (client) => {
       const {
         permissions,
         permissionError = "You lack permissions to use this!",
+        expectedArgs = '',
         requiredRoles = [],
         minArgs = 0,
         maxArgs = null,
@@ -119,7 +120,7 @@ module.exports.listen = (client) => {
       (maxArgs !== null && arguments.length > maxArgs)
     ) {
       message.reply(
-        `Unexpected arguments! Use ${prefix}${alias} ${expectedArgs}`
+        `Unexpected arguments! Use ${name} ${expectedArgs}`
       )
       return
     }
