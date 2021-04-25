@@ -5,8 +5,8 @@ const Turntable = require('ttapi');
 const client = new Discord.Client();
 
 const config = require('./config/config.json');
-const loadCommands = require('./commands/core/load-commands')
-const commandBase = require(`./commands/core/command-base`)
+const loadCommands = require('./commands/core/load-commands.js')
+const commandBase = require(`./commands/core/command-base.js`)
 
 process.on('unhandledRejection', error => {
 	if(error.code !== 50013) {
