@@ -13,4 +13,5 @@ commands/vc-leave.js
 commands/vc-playtest.js
 content/andy.png
 content/audio.mp3
-main-testing.js
+commands/test/test.js
+commands/test
