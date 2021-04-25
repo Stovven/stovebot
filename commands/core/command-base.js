@@ -1,4 +1,4 @@
-const { prefix } = require('../../config/config_original.json')
+const { prefix } = require('../../config/config.json')
 
 const validatePermission = (permissions) => {
   [
