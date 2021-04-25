@@ -4,6 +4,7 @@ const Discord = require('discord.js')
 
 module.exports = {
   commands: 'ping' ,
+  description: 'both tells you if the bot is infact alive and also give you some crypto price',
   callback: (message, arguments, text) => {
     snekfetch.get(api, {
       headers: {
@@ -27,5 +28,5 @@ module.exports = {
       .setFooter(`im using a shitty api, dont blame me`)
       message.channel.send(embed)
     })
-  },
+  }
 }

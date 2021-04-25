@@ -95,6 +95,7 @@ module.exports.listen = (client) => {
         requiredRoles = [],
         minArgs = 0,
         maxArgs = null,
+        description = 'n/a',
         callback
       } = command
 

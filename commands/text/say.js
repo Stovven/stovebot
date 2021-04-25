@@ -3,6 +3,7 @@ const id = "218919888583000064"
 
 module.exports = {
   commands: 'say' ,
+  description: 'no! fuck off',
   callback: (message, arguments, text) => {
     function isEmptyObject(obj) {
     return !Object.keys(obj).length;

@@ -3,6 +3,8 @@ const Discord = require('discord.js')
 
 module.exports = {
   commands: 'steam' ,
+  description: 'picks a random game out of your steam library',
+  expectedArgs: '<steamid64 (dec)>',
   callback: (message, arguments, text) => {
     function isEmptyObject(obj) {
     return !Object.keys(obj).length;
@@ -37,5 +39,5 @@ module.exports = {
       message.channel.send(embed)
     })
   });
-  },
+  }
 }

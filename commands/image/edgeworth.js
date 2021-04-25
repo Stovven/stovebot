@@ -3,6 +3,8 @@ const Canvas = require('canvas');
 
 module.exports = {
   commands: 'edgeworth' ,
+  description: 'funnier image, uses your own text!',
+  expectedArgs: '<message>',
   callback: async (message, arguments, text) => {
     function isEmptyObject(obj) {
     return !Object.keys(obj).length;
