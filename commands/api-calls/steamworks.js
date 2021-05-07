@@ -31,6 +31,9 @@ module.exports = {
 // this just checks we're not dealing with a steam64 key, and if we arent then lets just fuckin uh change it real quick
 // oh my fucking god i hate this, just re-do the whole thing then break, it'll cause less pain then trying to figure out how to just throw out the variable
 let steamID = arguments[0]
+if(steamID === "oshha") {
+  return
+}
 if(isNaN(steamID)) {
     let vanityURL = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.STEAM_TOKEN}&vanityurl=${steamID}`
     snekfetch.get(vanityURL).then(r => {
