@@ -47,7 +47,9 @@ if(isNaN(steamID)) {
           .setAuthor(`${member.username}, Here's your random steam game!`, avatar)
           .setTitle(`You have ${Math.floor(random.playtime_forever / 60)} Hour(s) in this game.`)
           .addFields(
-      		{ name: 'Steam Link', value: `https://store.steampowered.com/app/${random.appid}`}, )
+      		{ name: 'Steam Link:', value: `https://store.steampowered.com/app/${random.appid}`},
+          { name: 'Steam Profile:', value: `http://steamcommunity.com/profiles/{steamIDformated}`},
+          )
         .setImage(`https://cdn.cloudflare.steamstatic.com/steam/apps/${random.appid}/header.jpg`)
         .setFooter(`Steam App id: ${random.appid}`)
         message.channel.send(embed1).catch(error => {
@@ -86,7 +88,9 @@ return
       .setAuthor(`${member.username}, Here's your random steam game!`, avatar)
       .setTitle(`You have ${Math.floor(random.playtime_forever / 60)} Hour(s) in this game.`)
       .addFields(
-  		{ name: 'Steam Link', value: `https://store.steampowered.com/app/${random.appid}`}, )
+  		{ name: 'Steam Link:', value: `https://store.steampowered.com/app/${random.appid}`}, 
+      { name: 'Steam Profile:', value: `http://steamcommunity.com/profiles/{steamID}`},
+      )
     .setImage(`https://cdn.cloudflare.steamstatic.com/steam/apps/${random.appid}/header.jpg`)
     .setFooter(`Steam App id: ${random.appid}`)
     message.channel.send(embed1).catch(error => {
