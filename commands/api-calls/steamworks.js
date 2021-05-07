@@ -48,7 +48,7 @@ if(isNaN(steamID)) {
           .setTitle(`You have ${Math.floor(random.playtime_forever / 60)} Hour(s) in this game.`)
           .addFields(
       		{ name: 'Steam Link:', value: `https://store.steampowered.com/app/${random.appid}`},
-          { name: 'Steam Profile:', value: `http://steamcommunity.com/profiles/{steamIDformated}`},
+          { name: 'Steam Profile:', value: `http://steamcommunity.com/profiles/${steamIDformated}`},
           )
         .setImage(`https://cdn.cloudflare.steamstatic.com/steam/apps/${random.appid}/header.jpg`)
         .setFooter(`Steam App id: ${random.appid}`)
@@ -89,7 +89,7 @@ return
       .setTitle(`You have ${Math.floor(random.playtime_forever / 60)} Hour(s) in this game.`)
       .addFields(
   		{ name: 'Steam Link:', value: `https://store.steampowered.com/app/${random.appid}`}, 
-      { name: 'Steam Profile:', value: `http://steamcommunity.com/profiles/{steamID}`},
+      { name: 'Steam Profile:', value: `http://steamcommunity.com/profiles/${steamID}`},
       )
     .setImage(`https://cdn.cloudflare.steamstatic.com/steam/apps/${random.appid}/header.jpg`)
     .setFooter(`Steam App id: ${random.appid}`)
