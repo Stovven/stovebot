@@ -3,7 +3,7 @@ const id = "218919888583000064"
 
 module.exports = {
   commands: 'avatar' ,
-  description: 'changes the avatar, completely usable for everyone',
+  description: 'changes the avatar, completely unusable for everyone',
   callback: (message, arguments, text, client) => {
   if(message.author.id === id) {
     message.delete({reason: "dont worry this is normal"})
