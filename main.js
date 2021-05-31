@@ -7,6 +7,8 @@ const client = new Discord.Client();
 const config = require('./config/config.json');
 const loadCommands = require('./commands/core/load-commands.js')
 const commandBase = require(`./commands/core/command-base.js`)
+const turntableJSON = require(`./config/turntable.json`)
+
 
 process.on('unhandledRejection', error => {
 	if(error.code !== 50013) {
@@ -60,10 +62,11 @@ client.once('ready', () => {
 			client.channels.cache.get('834077440502399026').send(embed)
 				return;
 			}
+				let turntableQuote = turntableJSON.joining[Math.floor(Math.random()*turntableJSON.joining.length)]
 				let embed = new Discord.MessageEmbed()
 				.setColor('#47FC74')
 				.setAuthor(`${ttUsername.name} has joined the turntable!`)
-				.setDescription(`hey look, new people!`)
+				.setDescription(turntableQuote)
 				.setFooter(`god i hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
 		})
@@ -74,10 +77,11 @@ client.once('ready', () => {
 			if(ttUsername.name.includes(filter)) {
 						return;
 					}
+			let turntableQuote = turntableJSON.leaving[Math.floor(Math.random()*turntableJSON.leaving.length)]
 			let embed = new Discord.MessageEmbed()
 			    .setColor('#47FC74')
 			    .setAuthor(`${ttUsername.name} has left the turntable!`)
-			    .setDescription(`thats a shame innit.`)
+			    .setDescription(turntableQuote)
 			    .setFooter(`god i still hate this api`)
 			client.channels.cache.get('834077440502399026').send(embed)
 		})
