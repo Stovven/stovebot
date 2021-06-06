@@ -1,8 +1,10 @@
-// rewrite
 //requirements
 const Discord = require('discord.js');
 const Turntable = require('ttapi');
+const Starboard = require('discord-starboards')
 const client = new Discord.Client();
+const starmanager = new Starboard(client)
+client.starboardManager = starmanager
 
 const config = require('./config/config.json');
 const loadCommands = require('./commands/core/load-commands.js')
@@ -26,6 +28,13 @@ client.once('ready', () => {
     name: 'you',
     type: "WATCHING"
 }})
+if(client.starboardManager.starboards.length === 0) {
+	console.log('creating starboards')
+	client.starboardManager.create(client.channels.cache.get('822039515236401172'), {
+		threshold: 3,
+		color: '47FC74'
+	})
+}
 	loadCommands(client)
 	commandBase.listen(client);
 
