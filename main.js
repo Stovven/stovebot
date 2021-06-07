@@ -34,6 +34,7 @@ if(client.starboardManager.starboards.length === 0) {
 	client.starboardManager.create(client.channels.cache.get('822039515236401172'), {
 		threshold: 3,
                 starBotMsg: false,
+                selfStar: false,
 		color: '47FC74'
 	})
 }
