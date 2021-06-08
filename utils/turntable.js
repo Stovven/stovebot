@@ -35,7 +35,7 @@ module.exports = (client) => {
   	// 	.setFooter(`god i hate this api`)
   	// client.channels.cache.get('834077440502399026').send(embed)
   	// 	return;
-  	//}
+  	// }
   		let turntableQuote = turntableJSON.joining[Math.floor(Math.random()*turntableJSON.joining.length)]
   		let embed = new Discord.MessageEmbed()
   		.setColor('#47FC74')
@@ -45,7 +45,6 @@ module.exports = (client) => {
   	client.channels.cache.get('834077440502399026').send(embed)
     ttClient.roomInfo(false, r => {
       if(r.success) {
-      console.log(r.room.metadata.listeners)
       let embed = new Discord.MessageEmbed()
       .setColor('#47FC74')
       .setAuthor(`Current Users: ${r.room.metadata.listeners}`)
@@ -71,7 +70,6 @@ module.exports = (client) => {
   	client.channels.cache.get('834077440502399026').send(embed)
     ttClient.roomInfo(false, r => {
       if(r.success) {
-      console.log(r.room.metadata.listeners)
       let embed = new Discord.MessageEmbed()
       .setColor('#47FC74')
       .setAuthor(`Current Users: ${r.room.metadata.listeners}`)
