@@ -47,7 +47,7 @@ module.exports = (client) => {
       if(r.success) {
       let embed = new Discord.MessageEmbed()
       .setColor('#47FC74')
-      .setAuthor(`Current Users: ${r.room.metadata.listeners}`)
+      .setAuthor(`Current Users: ${r.room.metadata.listeners - 1}`)
       .setFooter(`god i hate discord's api`)
       client.channels.cache.get('834077440502399026').send(embed)
     }
@@ -72,7 +72,7 @@ module.exports = (client) => {
       if(r.success) {
       let embed = new Discord.MessageEmbed()
       .setColor('#47FC74')
-      .setAuthor(`Current Users: ${r.room.metadata.listeners}`)
+      .setAuthor(`Current Users: ${r.room.metadata.listeners - 1}`)
       .setFooter(`god i hate discord's api`)
       client.channels.cache.get('834077440502399026').send(embed)
     }
