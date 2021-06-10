@@ -71,6 +71,7 @@ client.on('guildMemberAdd', async member => {
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welecome.png')
 
 client.channels.cache.get('822034078643519492').send('fuck you', attachment);
+member.roles.add(member.guild.roles.cache.find(role => role.name === "friend"))
 })
 
 client.on("error", console.error);
