@@ -45,9 +45,13 @@ module.exports = (client) => {
   	client.channels.cache.get('834077440502399026').send(embed)
     ttClient.roomInfo(false, r => {
       if(r.success) {
+        let roomCount = r.room.metadata.listeners - 1
+        if (roomCount < 0) {
+          roomCount = 0
+        }
       let embed = new Discord.MessageEmbed()
       .setColor('#47FC74')
-      .setAuthor(`Current Users: ${r.room.metadata.listeners - 1}`)
+      .setAuthor(`Current Users: ${roomCount}`)
       .setFooter(`god i hate discord's api`)
       client.channels.cache.get('834077440502399026').send(embed)
     }
@@ -70,9 +74,13 @@ module.exports = (client) => {
   	client.channels.cache.get('834077440502399026').send(embed)
     ttClient.roomInfo(false, r => {
       if(r.success) {
+        let roomCount = r.room.metadata.listeners - 1
+        if (roomCount < 0) {
+          roomCount = 0
+        }
       let embed = new Discord.MessageEmbed()
       .setColor('#47FC74')
-      .setAuthor(`Current Users: ${r.room.metadata.listeners - 1}`)
+      .setAuthor(`Current Users: ${roomCount}`)
       .setFooter(`god i hate discord's api`)
       client.channels.cache.get('834077440502399026').send(embed)
     }
