@@ -1,6 +1,6 @@
 // =======================================================================================================
 // i rewrote the entire thing, now tells more information and is just cleaner in general.
-// actually getting good at this pogu
+// actually getting good at this pogu!
 // =======================================================================================================
 
 const Discord = module.require('discord.js');
