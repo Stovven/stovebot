@@ -22,42 +22,43 @@ module.exports = (client) => {
   })
   //logs if leaves or joins
   ttClient.on('registered', async data => {
-  const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
-  const filter = "ttstats"
-  if(ttUsername.name.includes(filter)) {
-  			return;
-  		}
-  	// if(ttUsername.name == "stovven") {
-  	// 	let embed = new Discord.MessageEmbed()
-  	// 	.setColor('#47FC74')
-  	// 	.setAuthor(`${ttUsername.name} has joined the turntable!`)
-  	// 	.setDescription(`hey look, thats me!`)
-  	// 	.setFooter(`god i hate this api`)
-  	// client.channels.cache.get('834077440502399026').send(embed)
-  	// 	return;
-  	// }
-  		let turntableQuote = turntableJSON.joining[Math.floor(Math.random()*turntableJSON.joining.length)]
-  		let embed = new Discord.MessageEmbed()
-  		.setColor('#47FC74')
-  		.setAuthor(`${ttUsername.name} has joined the turntable!`)
-  		.setDescription(turntableQuote)
-  		.setFooter(`god i hate this api`)
-  	client.channels.cache.get('834077440502399026').send(embed)
-    ttClient.roomInfo(false, r => {
-      if(r.success) {
-        let roomCount = r.room.metadata.listeners - 1
-        if (roomCount < 0) {
-          roomCount = 0
+    const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
+    const filter = "ttstats"
+    if(ttUsername.name.includes(filter)) {
+          return;
         }
-      let embed = new Discord.MessageEmbed()
-      .setColor('#47FC74')
-      .setAuthor(`Current Users: ${roomCount}`)
-      .setFooter(`god i hate discord's api`)
-      client.channels.cache.get('834077440502399026').send(embed)
-    }
+      // if(ttUsername.name == "stovven") {
+      // 	let embed = new Discord.MessageEmbed()
+      // 	.setColor('#47FC74')
+      // 	.setAuthor(`${ttUsername.name} has joined the turntable!`)
+      // 	.setDescription(`hey look, thats me!`)
+      // 	.setFooter(`god i hate this api`)
+      // client.channels.cache.get('834077440502399026').send(embed)
+      // 	return;
+      //}
+        let turntableQuote = turntableJSON.joining[Math.floor(Math.random()*turntableJSON.joining.length)]
+        let embed = new Discord.MessageEmbed()
+        .setColor('#47FC74')
+        .setAuthor(`${ttUsername.name} has joined the turntable!`)
+        .setDescription(turntableQuote)
+        .setFooter(`god i hate this api`)
+      let embedMessage = await client.channels.cache.get('834077440502399026').send(embed)
+      ttClient.roomInfo(false, r => {
+        if(r.success) {
+         let roomCount = r.room.metadata.listeners - 1
+          if (roomCount < 0) {
+            roomCount = 0
+          }
+        let newEmbed = new Discord.MessageEmbed()
+        .setColor('#47FC74')
+        .setAuthor(`${ttUsername.name} has joined the turntable!`)
+        .setDescription(turntableQuote)
+        .setFooter(`god i hate this api, Current users: ${roomCount}`)
+        embedMessage.edit(newEmbed)
+      }
+      })
+  
     })
-
-  })
 
   ttClient.on('deregistered', async data => {
   	const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
@@ -71,18 +72,19 @@ module.exports = (client) => {
   			.setAuthor(`${ttUsername.name} has left the turntable!`)
   			.setDescription(turntableQuote)
   			.setFooter(`god i still hate this api`)
-  	client.channels.cache.get('834077440502399026').send(embed)
+  	let embedMessage = await client.channels.cache.get('834077440502399026').send(embed)
     ttClient.roomInfo(false, r => {
       if(r.success) {
         let roomCount = r.room.metadata.listeners - 1
         if (roomCount < 0) {
           roomCount = 0
         }
-      let embed = new Discord.MessageEmbed()
+      let newEmbed = new Discord.MessageEmbed()
       .setColor('#47FC74')
-      .setAuthor(`Current Users: ${roomCount}`)
-      .setFooter(`god i hate discord's api`)
-      client.channels.cache.get('834077440502399026').send(embed)
+      .setAuthor(`${ttUsername.name} has left the turntable!`)
+  		.setDescription(turntableQuote)
+  		.setFooter(`god i hate this api, Current users: ${roomCount}`)
+      embedMessage.edit(newEmbed)
     }
   })
 })
