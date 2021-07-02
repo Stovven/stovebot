@@ -1,6 +1,8 @@
 // =======================================================================================================
-// i rewrote the entire thing, now tells more information and is just cleaner in general.
-// actually getting good at this pogu!
+// im dumb for using var, i could just delcare something and then just like put something in it instead
+// of being dumb and redeclaring it, fucking hell i am stupid, fixed the weird undefined games list not by
+// actually fixing it. instead i just said "something happened" and fuck i dont know why
+// probably on steams end. cant do much about it
 // =======================================================================================================
 
 const Discord = module.require('discord.js');
@@ -14,7 +16,7 @@ module.exports = {
   expectedArgs: '<steamid64 (dec) or custom steam url>',
   callback: async (message, arguments, text, client) => {
     let messageID = arguments[0]
-    var steamID = ''
+    let steamID = ''
 
     // check if message is empty
     if(!messageID) {
@@ -41,11 +43,11 @@ module.exports = {
       message.channel.send(embed)
       return
     }
-    var steamID = steamIDresponse.body.response.steamid
+     steamID = steamIDresponse.body.response.steamid
   } else {
 
     // straight up just put it into the variable if you roll with steamIDs
-    var steamID = await messageID
+     steamID = await messageID
   }
   
   // we're checking if the steamID is valid, if not return.
@@ -79,7 +81,16 @@ module.exports = {
   // we now need to use the steam api to find a random game
   let steamAPI = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${process.env.STEAM_TOKEN}&steamid=${steamID}&format=json`
   let steamAPIResponse = await Snekfetch.get(steamAPI)
-
+  // fuck i dont know why we sometimes get an undefined response, error out just for feedback that SOMETHINGS gone wrong
+  if(Object.keys(steamAPIResponse.body.response).length === 0 && steamAPIResponse.body.response.constructor === Object) {
+    let embed = new Discord.MessageEmbed()
+    .setColor('#47FC74')
+    .setAuthor("fuck i dont know")
+    .setDescription(`no really i have no clue, bug the one developer if you want`)
+    .setFooter(`fuck`)
+    message.channel.send(embed)
+    return
+  }
   let randomGame = steamAPIResponse.body.response.games[Math.floor(Math.random() * steamAPIResponse.body.response.games.length)] 
   //send them an embed, catch if any errors happen
   let member = message.author
