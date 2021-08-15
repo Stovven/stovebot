@@ -26,7 +26,7 @@ client.once('ready', () => {
 	commandBase.listen(client);
 	if(client.starboardManager.starboards.length === 0) {
 		console.log('creating starboards')
-		client.starboardManager.create(client.channels.cache.get(`${config.starboardchannel}`), {
+		client.starboardManager.create(client.channels.cache.get(`${config.starboardChannel}`), {
 			threshold: 3,
 			starBotMsg: false,
 			selfStar: false,
