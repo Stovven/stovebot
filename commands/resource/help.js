@@ -39,8 +39,11 @@ module.exports = {
 
       reply += `**${prefix}${mainCommand}${args}** = ${description}\n`
     }
+    let embed = new Discord.MessageEmbed()
+    .setTitle(`hello i have commands`)
+    .setDescription(`${reply}`)
+    .setColor('#47FC74')
 
-
-    message.channel.send(reply)
+    message.channel.send({embeds: [embed]})
   }
 }

@@ -26,7 +26,7 @@ module.exports = {
       .setDescription(`Find your Steamid on this website (https://steamidfinder.com/), Use Steamid64 (Dec)! You can also use your custom Steam URL! `)
       .setImage(`https://i.imgur.com/16meXnO.png`)
       .setFooter(`steam api moment`)
-      message.channel.send(embed)
+      message.channel.send({embeds: [embed]})
       return 
     }
 
@@ -40,7 +40,7 @@ module.exports = {
       .setAuthor("The vanity URL leads to no steam account!")
       .setDescription(`check it, probably misspelled it or something`)
       .setFooter(`oh well`)
-      message.channel.send(embed)
+      message.channel.send({embeds: [embed]})
       return
     }
      steamID = steamIDresponse.body.response.steamid
@@ -58,7 +58,7 @@ module.exports = {
     .setAuthor("The SteamID leads to no steam account!")
     .setDescription(`check it, i dunno how its wrong but it is`)
     .setFooter(`oh well`)
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
     return
   }
 
@@ -73,7 +73,7 @@ module.exports = {
     .setAuthor("The Steam account isnt public!")
     .setDescription(`change it in your privacy settings, we cant choose a game from it if we cant see it`)
     .setFooter(`oh well`)
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
     return
   }
 
@@ -88,7 +88,7 @@ module.exports = {
     .setAuthor("fuck i dont know")
     .setDescription(`no really i have no clue, bug the one developer if you want`)
     .setFooter(`fuck`)
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
     return
   }
   let randomGame = steamAPIResponse.body.response.games[Math.floor(Math.random() * steamAPIResponse.body.response.games.length)] 
@@ -105,14 +105,14 @@ module.exports = {
           )
         .setImage(`https://cdn.cloudflare.steamstatic.com/steam/apps/${randomGame.appid}/header.jpg`)
         .setFooter(`Steam App id: ${randomGame.appid}`)
-  message.channel.send(embed)
+      message.channel.send({embeds: [embed]})
   .catch(error => {
     let embed = new Discord.MessageEmbed()
     .setColor('#47FC74')
     .setAuthor("somethings actually gone wrong")
     .setDescription(`call a programer! im sure he'll enjoy trying to fix it`)
     .setFooter(`fuck`)
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
   })
   },
 }

@@ -17,7 +17,7 @@ module.exports = {
     .setColor('#47FC74')
     .setAuthor("no!")
     .setDescription(`fuck off, like really`)
-    message.channel.send(embed)
-  }
+    message.channel.send({embeds: [embed]})
+    }
   },
 }

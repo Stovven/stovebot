@@ -35,8 +35,7 @@ module.exports = {
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'edgeworth.png')
 
-    message.channel.send('edgeworth moment', attachment);
-  },
+    message.channel.send({content: `edgeworth moment`, files: [attachment]});  },
   permissions: [],
   requiredRoles: [],
 }

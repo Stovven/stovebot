@@ -19,14 +19,14 @@ module.exports = {
       .setDescription(`oh and also the current price of this random ass cypto called "${random.name}" is $${random.quote.USD.price.toFixed(2)}`)
       .setFooter(`thanks andy, also be warned that this might not work sometimes. id ${random.id}`)
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     }).catch(error => {
       let embed = new Discord.MessageEmbed()
       .setColor('#47FC74')
       .setAuthor("yes i am alive")
       .setDescription(`the api however is not, probably due to request limits. oh well`)
       .setFooter(`im using a shitty api, dont blame me`)
-      message.channel.send(embed)
+      message.channel.send({embeds: [embed]})
     })
   }
 }

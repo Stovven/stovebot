@@ -1,8 +1,13 @@
 const Turntable = module.require('ttapi')
 const Discord = module.require('discord.js')
 const turntableJSON = module.require('../config/turntable.json')
+const config = module.require('../config/config.json')
 
 module.exports = (client) => {
+
+  // toggle
+  if(!config.ttEnabled) return
+  console.log(`turntable notifications enabled`)
 
 
   //login into turntable
@@ -22,43 +27,34 @@ module.exports = (client) => {
   })
   //logs if leaves or joins
   ttClient.on('registered', async data => {
-    const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
-    const filter = "ttstats"
-    if(ttUsername.name.includes(filter)) {
-          return;
+  const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
+  const filter = "ttstats"
+  if(ttUsername.name.includes(filter)) {
+  			return;
+  		}
+  		let turntableQuote = turntableJSON.joining[Math.floor(Math.random()*turntableJSON.joining.length)]
+  		let embed = new Discord.MessageEmbed()
+  		.setColor('#47FC74')
+  		.setAuthor(`${ttUsername.name} has joined the turntable!`)
+  		.setDescription(turntableQuote)
+  		.setFooter(`god i hate this api`)
+  	let embedMessage = await client.channels.cache.get(`${config.ttChannel}`).send({embeds: [embed]})
+    ttClient.roomInfo(false, r => {
+      if(r.success) {
+       let roomCount = r.room.metadata.listeners - 1
+        if (roomCount < 0) {
+          roomCount = 0
         }
-      // if(ttUsername.name == "stovven") {
-      // 	let embed = new Discord.MessageEmbed()
-      // 	.setColor('#47FC74')
-      // 	.setAuthor(`${ttUsername.name} has joined the turntable!`)
-      // 	.setDescription(`hey look, thats me!`)
-      // 	.setFooter(`god i hate this api`)
-      // client.channels.cache.get('834077440502399026').send(embed)
-      // 	return;
-      //}
-        let turntableQuote = turntableJSON.joining[Math.floor(Math.random()*turntableJSON.joining.length)]
-        let embed = new Discord.MessageEmbed()
-        .setColor('#47FC74')
-        .setAuthor(`${ttUsername.name} has joined the turntable!`)
-        .setDescription(turntableQuote)
-        .setFooter(`god i hate this api`)
-      let embedMessage = await client.channels.cache.get('834077440502399026').send(embed)
-      ttClient.roomInfo(false, r => {
-        if(r.success) {
-         let roomCount = r.room.metadata.listeners - 1
-          if (roomCount < 0) {
-            roomCount = 0
-          }
-        let newEmbed = new Discord.MessageEmbed()
-        .setColor('#47FC74')
-        .setAuthor(`${ttUsername.name} has joined the turntable!`)
-        .setDescription(turntableQuote)
-        .setFooter(`god i hate this api, Current users: ${roomCount}`)
-        embedMessage.edit(newEmbed)
-      }
-      })
-  
+      let newEmbed = new Discord.MessageEmbed()
+      .setColor('#47FC74')
+      .setAuthor(`${ttUsername.name} has joined the turntable!`)
+  		.setDescription(turntableQuote)
+  		.setFooter(`god i hate this api, Current users: ${roomCount}`)
+      embedMessage.edit(newEmbed)
+    }
     })
+
+  })
 
   ttClient.on('deregistered', async data => {
   	const ttUsername = data.user[Math.floor(Math.random() * data.user.length)];
@@ -72,7 +68,7 @@ module.exports = (client) => {
   			.setAuthor(`${ttUsername.name} has left the turntable!`)
   			.setDescription(turntableQuote)
   			.setFooter(`god i still hate this api`)
-  	let embedMessage = await client.channels.cache.get('834077440502399026').send(embed)
+  	let embedMessage = await client.channels.cache.get(`${config.ttChannel}`).send({embeds: [embed]})
     ttClient.roomInfo(false, r => {
       if(r.success) {
         let roomCount = r.room.metadata.listeners - 1
@@ -88,7 +84,6 @@ module.exports = (client) => {
     }
   })
 })
-
 
   //wish i didnt have to do this perhaps
   ttClient.on('newsong', async data => {
