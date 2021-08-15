@@ -6,7 +6,7 @@ module.exports = {
   commands: 'help' ,
   description: 'this helps you, i guess',
   callback: (message, arguments, text) => {
-    let reply = 'this bot does have commands! not embeded though :(\n\n'
+    let reply = 'this bot does have commands!\n\n'
     const commands = loadCommands()
 
     for (const command of commands) {
