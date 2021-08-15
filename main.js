@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+//requirements v13
+>>>>>>> f6462d9a96bdeb91528bf50b806ce09d7fa3a439
 const Discord = require('discord.js');
 const Turntable = require('ttapi');
 const Starboard = require('discord-starboards')
