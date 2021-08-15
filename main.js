@@ -3,7 +3,7 @@ const Turntable = require('ttapi');
 const Starboard = require('discord-starboards')
 const Canvas = require('canvas');
 
-const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
+const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'] });
 const starmanager = new Starboard(client)
 client.starboardManager = starmanager
 
