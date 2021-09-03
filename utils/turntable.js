@@ -50,7 +50,7 @@ module.exports = (client) => {
       .setAuthor(`${ttUsername.name} has joined the turntable!`)
   		.setDescription(turntableQuote)
   		.setFooter(`god i hate this api, Current users: ${roomCount}`)
-      embedMessage.edit({embed: [newEmbed]})
+      embedMessage.edit({embeds: [newEmbed]})
     }
     })
 
@@ -80,7 +80,7 @@ module.exports = (client) => {
       .setAuthor(`${ttUsername.name} has left the turntable!`)
   		.setDescription(turntableQuote)
   		.setFooter(`god i hate this api, Current users: ${roomCount}`)
-      embedMessage.edit({embed: [newEmbed]})
+      embedMessage.edit({embeds: [newEmbed]})
     }
   })
 })
