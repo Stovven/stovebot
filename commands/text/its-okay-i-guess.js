@@ -42,11 +42,13 @@ module.exports = {
     let randomMessageThird = getRandomItem(filteredMessages)
     do {
       randomMessageSecond = getRandomItem(filteredMessages)
+      console.log(randomMessageSecond)
     } while (randomMessageSecond[1].author.username === randomMessageMain[1].author.username)
     do {
       randomMessageThird = getRandomItem(filteredMessages)
+      console.log(randomMessageThird)
     } while (randomMessageThird[1].author.username === randomMessageMain[1].author.username)
-    //console.log(randomMessageMain[1].author.username)
+    console.log(`answer: `, randomMessageMain[1].author.username)
     //console.log(randomMessageSecond[1].author.username)
     //console.log(randomMessageThird[1].author.username)
     let arr = [ ]
