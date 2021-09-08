@@ -47,7 +47,7 @@ module.exports = {
     do {
       randomMessageThird = getRandomItem(filteredMessages)
       console.log(randomMessageThird[1].author.username)
-    } while (randomMessageThird[1].author.username === randomMessageMain[1].author.username)
+    } while (randomMessageThird[1].author.username === randomMessageMain[1].author.username && randomMessageSecond[1].author.username === randomMessageThird[1].author.username)
     console.log(`answer: `, randomMessageMain[1].author.username)
     //console.log(randomMessageSecond[1].author.username)
     //console.log(randomMessageThird[1].author.username)
