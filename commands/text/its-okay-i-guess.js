@@ -31,7 +31,7 @@ module.exports = {
     //console.log(fetchedChannel)
     if (!fetchedChannel) return console.log(`The channel ${randomChannel} is invaild, check config again!`)
     let channelMessages = await fetchedChannel.messages.fetch({limit: 30, before: `${snowflakeGen}`})
-    let filteredMessages = channelMessages.filter(m => m.content !== '')
+    let filteredMessages = channelMessages.filter(m => m.content !== '' && m.embeds[0].type !== 'link')
     //console.log(filteredMessages)
     function getRandomItem(set) {
       let items = Array.from(set);
@@ -46,6 +46,7 @@ module.exports = {
     } while (randomMessageSecond[1].author.username == randomMessageMain[1].author.username || randomMessageSecond[1].author.username == randomMessageThird[1].author.username)
     do {
       randomMessageThird = getRandomItem(filteredMessages)
+
      // console.log(randomMessageThird[1].author.username)
     } while (randomMessageThird[1].author.username === randomMessageMain[1].author.username || randomMessageSecond[1].author.username === randomMessageThird[1].author.username)
     //console.log(`answer: `, randomMessageMain[1].author.username)
