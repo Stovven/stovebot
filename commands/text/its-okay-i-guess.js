@@ -57,7 +57,7 @@ module.exports = {
   //console.log(arr)
   let embed = new Discord.MessageEmbed()
     .setColor('#47FC74')
-    .setDescription(`Here's this new random message: "${randomMessageMain[1].content}"\n Guess who it is! Could it be\n 1.**${arr[0]}**\n2.**${arr[1]}**\n3.**${arr[2]}**\n30 seconds starts now (so dont fuck up)!`)
+    .setDescription(`Here's this new random message: "${randomMessageMain[1].content}"\n Guess who it is! Could it be\n 1.**${arr[0]}**\n2.**${arr[1]}**\n3.**${arr[2]}**\n30 seconds starts now (so dont fuck up)!\n (use usernames not numbers idiot)`)
     message.channel.send({embeds: [embed]})
     let userFilter = m => m.author.id === message.author.id
     let userResponse = await message.channel.awaitMessages({filter: userFilter, max: 1, time: 30000, errors: ['time']}).catch(error => {
