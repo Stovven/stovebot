@@ -31,7 +31,7 @@ module.exports = {
     //console.log(fetchedChannel)
     if (!fetchedChannel) return console.log(`The channel ${randomChannel} is invaild, check config again!`)
     let channelMessages = await fetchedChannel.messages.fetch({limit: 30, before: `${snowflakeGen}`})
-    let filteredMessages = channelMessages.filter(m => m.content !== '' && m.embeds[0].type !== 'link')
+    let filteredMessages = channelMessages.filter(m => m.content !== '')
     //console.log(filteredMessages)
     function getRandomItem(set) {
       let items = Array.from(set);
