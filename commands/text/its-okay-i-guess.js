@@ -40,6 +40,12 @@ module.exports = {
     let randomMessageMain = getRandomItem(filteredMessages)
     let randomMessageSecond = getRandomItem(filteredMessages)
     let randomMessageThird = getRandomItem(filteredMessages)
+    do {
+      randomMessageSecond = getRandomItem(filteredMessages)
+    } while (randomMessageSecond[1].author.username === randomMessageMain[1].author.username)
+    do {
+      randomMessageThird = getRandomItem(filteredMessages)
+    } while (randomMessageThird[1].author.username === randomMessageMain[1].author.username)
     //console.log(randomMessageMain[1].author.username)
     //console.log(randomMessageSecond[1].author.username)
     //console.log(randomMessageThird[1].author.username)
