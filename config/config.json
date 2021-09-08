@@ -3,5 +3,6 @@
   "welcomeChannel" : "822034078643519492",
   "starboardChannel": "822039515236401172",
   "ttChannel": "834077440502399026",
-  "ttEnabled": true
+  "ttEnabled": true,
+  "itsOkayChannel": ["822034078643519492", "822049188221026354", "822037640647147530", "822035762039750676"] 
 }
