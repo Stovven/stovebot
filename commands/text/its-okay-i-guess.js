@@ -42,22 +42,26 @@ module.exports = {
     let randomMessageThird = getRandomItem(filteredMessages)
     console.log(`answer: `, randomMessageMain[1].author.username)
     while (randomMessageSecond[1].author.username == randomMessageMain[1].author.username || randomMessageSecond[1].author.username == randomMessageThird[1].author.username) {
-      randomMessageSecond = getRandomItem(filteredMessages)
-      console.log(randomMessageSecond[1].author.username)
       let count1 = 0 
       count1 = count1 + 1
       console.log(count1)
+      if(count1 < 30) {
+      randomMessageSecond = getRandomItem(filteredMessages)
+      console.log(randomMessageSecond[1].author.username)
+      }
       if (count1 = 30) {
         console.log(`we fucked up, choosing whatever's left`)
         break
       }
     }
      while (randomMessageThird[1].author.username === randomMessageMain[1].author.username || randomMessageSecond[1].author.username === randomMessageThird[1].author.username) {
-      randomMessageThird = getRandomItem(filteredMessages)
-      console.log(randomMessageThird[1].author.username)
       let count2 = 0 
       count2 = count2 + 1
       console.log(count2)
+      if(count2 < 30){ 
+      randomMessageThird = getRandomItem(filteredMessages)
+      console.log(randomMessageThird[1].author.username)
+    }
       if (count2 = 30) {
         console.log(`we fucked up, choosing whatever's left`)
         break
