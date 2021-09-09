@@ -18,7 +18,8 @@ module.exports = {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     }
     const time = randomDate(new Date(2020, 18, 3), new Date());
-    const timeSecondMesssage = randomDate(new Date(2020, 18, 3), new Dat), new Date());
+    const timeSecondMesssage = randomDate(new Date(2020, 18, 3), new Date());
+    const timeThirdMessage = randomDate(new Date(2020, 18, 3), new Date());
     timeSecondMesssage.setDate(timeSecondMesssage.getDate() - Math.floor(Math.random() * 11))
     timeThirdMessage.setDate(timeThirdMessage.getDate() - Math.floor(Math.random() * 11 + 5))
 
