@@ -84,7 +84,7 @@ shuffleArray(arr)
 
 
 let embed = new Discord.MessageEmbed()
-  .setColor('#2F3136')
+  .setColor('#47FC74')
   .setTitle(`Here's a new random message!`)
   .setDescription(`\n\`\`\`${randomMessageMain[1].content}\`\`\`\nI wonder who it is, could it be:\n ● **${arr[0]}**\n● **${arr[1]}**\n● **${arr[2]}**\n\n**30 seconds starts now!**\n (so dont fuck up)`)
   .setFooter(`Player: ${message.member.user.tag}`)
