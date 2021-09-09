@@ -1,5 +1,5 @@
 const Discord = module.require('discord.js');
-const { itsOkayChannel } = require('../../config/config.json')
+const { itsOkayChannel, itsNotOkayUserID } = require('../../config/config.json')
 
 module.exports = {
   commands: 'okay' ,
@@ -18,9 +18,7 @@ module.exports = {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     }
     const time = randomDate(new Date(2020, 18, 3), new Date());
-    const timeSecondMesssage = randomDate(new Date(2020, 18, 3), new Date());
-    const timeThirdMessage = randomDate(new Date(2020, 18, 3), new Date());
-
+    const timeSecondMesssage = randomDate(new Date(2020, 18, 3), new Dat), new Date());
     timeSecondMesssage.setDate(timeSecondMesssage.getDate() - Math.floor(Math.random() * 11))
     timeThirdMessage.setDate(timeThirdMessage.getDate() - Math.floor(Math.random() * 11 + 5))
 
@@ -99,8 +97,6 @@ if (typeof userResponse == 'undefined') {
   return
 }
 let userGuess = userResponse.map(msg => msg.content).join(' ')
-
-  let userGuess = userResponse.map(msg => msg.content).join(' ')
 
   if (userGuess.toLowerCase() === randomMessageMain[1].author.username.toLowerCase()) {
     message.channel.send(`wow you win (you dont suck)!!!! the correct answer was **${randomMessageMain[1].author.username}**, you said **${userGuess}**`)
